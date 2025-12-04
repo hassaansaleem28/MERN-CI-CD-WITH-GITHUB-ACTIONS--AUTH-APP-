@@ -51,11 +51,6 @@ jobs:
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd mern-auth-app
-
-            # Pull the latest git changes (contains docker-compose.yml)
-            git pull origin main
-
             # Pull updated docker images
             docker compose pull
 
