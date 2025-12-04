@@ -1,0 +1,36 @@
+services:
+  client:
+    build:
+      context: ./client # Path to your client folder
+      dockerfile: Dockerfile # Your client Dockerfile
+    ports:
+      - "5173:80" # HOST:CONTAINER
+    depends_on:
+      - server
+    environment:
+      # URL where your backend API is accessible FROM THE CLIENT
+      - VITE_API_URL=http://localhost:5000 # <-- PUT YOUR BACKEND URL HERE
+    networks:
+      - mern
+
+  server:
+    build:
+      context: ./server # Path to your server folder
+      dockerfile: Dockerfile # Your server Dockerfile
+    ports:
+      - "5000:5000" # Backend port
+    environment:
+      - PORT=5000
+      - MONGODB_URL=mongodb+srv://iamhassaans:P2158302RLgl@cluster0.gtrbucv.mongodb.net
+      - JWT_SECRET="$hassaan$"
+      - SENDER_EMAIL=iamhassaans@gmail.com
+      - SMTP_USER=iamhassaans@gmail.com
+      - SMTP_PASSWORD=ssry ihfm fbie tpra
+    networks:
+      - mern
+
+networks:
+  mern:
+
+volumes:
+  mongo_data:
