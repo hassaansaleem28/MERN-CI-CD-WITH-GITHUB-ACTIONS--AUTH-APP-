@@ -1,36 +1,29 @@
 services:
   client:
-    build:
-      context: ./client # Path to your client folder
-      dockerfile: Dockerfile # Your client Dockerfile
+    image: hassaan28/mern-auth-client:latest
     ports:
-      - "5173:80" # HOST:CONTAINER
+      - "80:80" # Expose client on port 80 (standard HTTP)
     depends_on:
       - server
-    environment:
-      # URL where your backend API is accessible FROM THE CLIENT
-      - VITE_API_URL=http://localhost:5000 # <-- PUT YOUR BACKEND URL HERE
+    restart: always
     networks:
       - mern
 
   server:
-    build:
-      context: ./server # Path to your server folder
-      dockerfile: Dockerfile # Your server Dockerfile
+    image: hassaan28/mern-auth-server:latest
     ports:
-      - "5000:5000" # Backend port
+      - "5000:5000" # Expose backend API
     environment:
-      - PORT=${PORT}
+      - PORT=5000
       - MONGODB_URL=${MONGODB_URL}
       - JWT_SECRET=${JWT_SECRET}
       - SENDER_EMAIL=${SENDER_EMAIL}
       - SMTP_USER=${SMTP_USER}
       - SMTP_PASSWORD=${SMTP_PASSWORD}
+    restart: always
     networks:
       - mern
 
 networks:
   mern:
-
-volumes:
-  mongo_data:
+    driver: bridge
