@@ -20,12 +20,12 @@ services:
     ports:
       - "5000:5000" # Backend port
     environment:
-      - PORT=5000
-      - MONGODB_URL=mongodb+srv://iamhassaans:P2158302RLgl@cluster0.gtrbucv.mongodb.net
-      - JWT_SECRET="$hassaan$"
-      - SENDER_EMAIL=iamhassaans@gmail.com
-      - SMTP_USER=iamhassaans@gmail.com
-      - SMTP_PASSWORD=ssry ihfm fbie tpra
+      - PORT=${PORT}
+      - MONGODB_URL=${MONGODB_URL}
+      - JWT_SECRET=${JWT_SECRET}
+      - SENDER_EMAIL=${SENDER_EMAIL}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
     networks:
       - mern
 
