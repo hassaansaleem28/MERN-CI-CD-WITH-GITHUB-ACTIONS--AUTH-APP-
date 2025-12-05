@@ -14,7 +14,7 @@ function Header() {
         <img className="w-8 aspect-square" src={assets.hand_wave} />
       </h1>
       <h2 className="text-3xl sm:text-5xl mb-4 font-semibold">
-        Welcome to our app
+        Welcome to auth app 😄
       </h2>
       <p className="mb-8 max-w-md">
         Let's start with a quick product tour and we will have you up and
