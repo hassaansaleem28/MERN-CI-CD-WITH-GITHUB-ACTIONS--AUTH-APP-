@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 export const AppContext = createContext();
 export function AppContextProvider({ children }) {
   const [isloggedIn, setIsloggedIn] = useState(false);
-  const backendUrl = "http://server:5000";
+  const backendUrl = "http://13.60.44.205:5000";
   const [userDataa, setUserDataa] = useState(false);
   console.log(backendUrl);
   axios.defaults.withCredentials = true;

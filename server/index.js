@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://mern-auth-hassaan.vercel.app"],
+    origin: "http://13.60.44.205",
     methods: ["POST", "PUT", "GET", "DELETE", "CREATE"],
     credentials: true,
   })
